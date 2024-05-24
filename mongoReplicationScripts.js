@@ -18,7 +18,7 @@ docker exec -ti mongo1 sh
 mongosh
 
 //iniciamos nuestro Replica Set
-rs.initiate({_id:"myReplicaSet",members:[{_id: 0, host:"mongo1"},{_id: 1, host:"mongo2"},{_id: 2, host:"mongo3"}]]]})
+rs.initiate({_id:"myReplicaSet",members:[{_id: 0, host:"mongo1"},{_id: 1, host:"mongo2"},{_id: 2, host:"mongo3"}]})
 
 //Verificamos el estado 
 rs.status()
@@ -41,8 +41,8 @@ const documents = [
 db.referees.insertMany(documents)
 
 // Abrimos una nueva terminal e ingresamos a la consola de un nodo secundario (mongo3)
-Docker exec -ti mongo3 sh
-Mongosh
+docker exec -ti mongo3 sh
+mongosh
 
 // Ahora ejecutamos el siguiente comando para validar que los datos fueron replicados
 
